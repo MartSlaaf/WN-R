@@ -1,0 +1,52 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 11.08.0 ] */
+
+/* [wxMaxima: input   start ] */
+data: read_matrix("/home/mart/Documents/Last_UIR/WN-R/exp1_g.csv", semicolon)$
+plot2d ([discrete, transpose(data)[1], transpose(data)[2]], [style,points], [point_type, plus], [color,blue])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+data: read_matrix("/home/mart/Documents/Last_UIR/WN-R/result2.csv", semicolon)$
+load(draw)$
+/* draw3d(color=blue, points(submatrix(4, transpose(data))), color=blue, explicit(sin(x/3)*cos(2*y),x,-4,4,y,-4,4))$ */
+
+draw3d(color=blue, explicit(sin(x/3)*cos(2*y),x,-4,4,y,-4,4), color=red, points(transpose(data)))$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+data: read_matrix("/home/mart/Documents/Last_UIR/WN-R/exp3_g.csv", semicolon);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+plot2d ([discrete, transpose(data)[1]], [style,points], [point_type, plus], [color,blue])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+data: read_matrix("/home/mart/Documents/Last_UIR/WN-R/result2.csv", semicolon)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+data;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+fold(x,y) : (1 - (x+y*2)) * exp(-(x+y*2) / 2)&
+fnew(x,y) : (1 - x) * exp(-x / 2) * (1 - y*2) * exp(-y*2 / 2)&
+
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+plot3d(exp((-(x+y*2)^2)/2) * cos(5*(x+y*2)), [x,-5,5], [y,-5,5], [grid, 100, 100])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+plot3d(exp((-(x)^2)/2) * cos(5*(x))+2*exp((-(y)^2)/2) * cos(5*(y)), [x,-5,5], [y,-5,5], [grid, 100, 100])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+plot3d(exp((-(x)^2)/2) * cos(5*(x))*exp((-(y*2)^2)/2) * cos(5*(y*2)), [x,-5,5], [y,-5,5], [grid, 100, 100])$
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
